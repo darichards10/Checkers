@@ -1,0 +1,23 @@
+﻿<Window x:Class="Checkers.createAccount"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Checkers"
+        mc:Ignorable="d"
+        Title="createAccount" Height="450" Width="300"
+        WindowStyle="None" ResizeMode="NoResize">
+    <Border CornerRadius="10" BorderThickness="10" BorderBrush="Black">
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Checkers.png"/>
+            </Grid.Background>
+            <TextBox x:Name="username" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="155" Margin="0,185,0,0" TextAlignment="Center" Background="{x:Null}" FontFamily="Arial Black" GotFocus="username_GotFocus"/>
+            <TextBox x:Name="password1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="155" Margin="0,215,0,0" TextAlignment="Center" Background="{x:Null}" FontFamily="Arial Black" GotFocus="password1_GotFocus"/>
+            <TextBox x:Name="password2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Confirm Password" VerticalAlignment="Top" Width="155" Margin="0,245,0,0" TextAlignment="Center" Background="{x:Null}" FontFamily="Arial Black" GotFocus="password2_GotFocus"/>
+            <Button x:Name="create" Content="Create" HorizontalAlignment="Center" Margin="0,275,0,0" VerticalAlignment="Top" Width="64" FontFamily="Arial Black" Foreground="White" Background="#FFB52D2D" Click="create_Click"/>
+            <Button x:Name="back" Content="Back" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Top" Width="64" Click="back_Click" FontFamily="Arial Black" Foreground="White" Background="#FFB52D2D"/>
+
+        </Grid>
+    </Border>
+</Window>
