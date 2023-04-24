@@ -13,5 +13,7 @@ namespace Checkers
     /// </summary>
     public partial class App : Application
     {
+        public static string usernameStr { get; set; }
+        public static string highScoreStr { get; set; }
     }
 }

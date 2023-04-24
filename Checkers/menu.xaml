@@ -23,7 +23,7 @@
         </Grid.Background>
         <StackPanel   Grid.Row="1">
             <Button x:Name="play" Content="Play" Height="70" Background="{x:Null}" FontFamily="Arial Black" BorderBrush="{x:Null}" Click="play_Click"/>
-            <Button x:Name="history" Content="History" Height="70" Background="{x:Null}" FontFamily="Arial Black" BorderBrush="{x:Null}"/>
+            <Button x:Name="history" Content="History" Height="70" Background="{x:Null}" FontFamily="Arial Black" BorderBrush="{x:Null}" Click="history_Click"/>
             <Button x:Name="changeBoard" Content="Change Board/Pieces" Height="70" Background="{x:Null}" FontFamily="Arial Black" BorderBrush="{x:Null}" Click="changeBoard_Click"/>
             <Button x:Name="changeAccount" Content="Change Account" Height="70" Background="{x:Null}" FontFamily="Arial Black" BorderBrush="{x:Null}" Click="changeAccount_Click"/>
             <Button x:Name="close" Content="Close" Height="70" Background="{x:Null}" FontFamily="Arial Black" BorderBrush="{x:Null}" Click="close_Click"/>
@@ -35,8 +35,454 @@
             </Image.OpacityMask>
         </Image>
         <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0 0 0 3"/>
-        <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="0 0 0 3"/>
+        <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="0 0 0 3">
+
+        </Border>
         <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="0 0 3 0"/>
-        <Grid x:Name="contentGrid" Grid.Column="1" Grid.Row="1" Width="300" Height="300"/>
+        <Grid x:Name="contentGrid" Grid.Column="1" Grid.Row="1" Width="300" Height="300">
+            <Grid.Background>
+                <ImageBrush ImageSource="bwBoard.png"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="r1" Grid.Row="0" Grid.Column="1" Click="validMove" >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="Red" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="r2" Grid.Row="0" Grid.Column="3" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="Red" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+
+            <Button x:Name="r3" Grid.Row="0" Grid.Column="5" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="Red" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="r4" Grid.Row="0" Grid.Column="7" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="Red" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="r5" Grid.Row="1" Grid.Column="0" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="Red" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+
+            <Button x:Name="r6" Grid.Row="1" Grid.Column="2" Margin="0,0,0,1" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="Red" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="r7" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Height="37" Margin="0,0,37,0" VerticalAlignment="Top" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="Red" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="r8" Grid.Row="1" Grid.Column="6" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="Red" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="r9" Grid.Row="2" Grid.Column="1" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="Red" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="r10" Grid.Row="2" Grid.Column="3" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="Red" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="r11" Grid.Row="2" Grid.Column="5" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="Red" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="r12" Grid.Row="2" Grid.Column="7" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="Black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="Red" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+
+
+
+            <Button x:Name="b10" Grid.Row="5" Grid.Column="2" Click="validMove" >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="Black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="gray" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="b1" Grid.Row="7" Grid.Column="0" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="Black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="gray" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="b11" Grid.Row="5" Grid.Column="4" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="Black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="gray" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="b3" Grid.Row="7" Grid.Column="4" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="Black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="gray" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="b12" Grid.Row="5" Grid.Column="6" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="Black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="gray" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="b6" Grid.Row="6" Grid.Column="3" Click="validMove" >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="Black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="gray" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="b7" Grid.Row="6" Grid.Column="5" Click="validMove" >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="Black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="gray" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="b5" Grid.Row="6" Grid.Column="1" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="Black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="gray" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="b9" Grid.Row="5" Grid.Column="0" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="Black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="gray" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="b2" Grid.Row="7" Grid.Column="2" Click="validMove" >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="Black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="Gray" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="b4" Grid.Row="7" Grid.Column="6" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="Black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="gray" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="b8" Grid.Row="6" Grid.Column="7" Click="validMove">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="Black" Stroke="White" StrokeThickness="2"/>
+                                        <Ellipse Fill="gray" Stroke="Black" StrokeThickness="2" Margin="4"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+        </Grid>
+        <Label Grid.Column="1" Content="Current Score" HorizontalAlignment="Left" Margin="22,75,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="High Score" HorizontalAlignment="Left" Margin="29,136,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="Username"  HorizontalAlignment="Left" Margin="34,21,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label x:Name="highScore" Grid.Column="1" Content="0000" HorizontalAlignment="Left" Margin="45,167,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label x:Name="currentScore" Grid.Column="1" Content="0000" HorizontalAlignment="Left" Margin="45,107,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label x:Name="username" Content=""  HorizontalAlignment="Left" Margin="34,52,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.Column="1"/>
     </Grid>
 </Window>

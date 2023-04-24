@@ -22,9 +22,11 @@ namespace Checkers
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+           
         }
 
         //Close button
@@ -39,22 +41,21 @@ namespace Checkers
             if(validateUser(username.Text, password.Text))
             {
                 successfulLogin();
-            } else
-            {
-                MessageBoxResult mBox = MessageBox.Show("Either invalid username or password!!");
-            }
-            
+            } 
         }
 
         //Open application window on validation
         private void successfulLogin()
         {
-            
-                menu menuWindow = new menu();
+
+           
+
+            menu menuWindow = new menu();
                 menuWindow.Owner = this;
                 menuWindow.Show();
                 this.Hide();
-        
+
+            
         }
 
         private void createAccount_Click(object sender, RoutedEventArgs e)
@@ -78,7 +79,7 @@ namespace Checkers
                
                 using (var cmd = connection.CreateSelectCommand(
                      "SELECT password FROM users " +
-                     "WHERE username = " + username))
+                     "WHERE username = @username"))
                 {
 
                     cmd.Parameters.Add("username", SpannerDbType.String).Value= username;

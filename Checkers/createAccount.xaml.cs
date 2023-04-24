@@ -80,7 +80,7 @@ namespace Checkers
                 {
                     await connection.RunWithRetriableTransactionAsync(async transaction =>
                     {
-                        // user = hash(user);
+                      
                         pwrd = hash(pwrd);
 
                         
@@ -89,7 +89,8 @@ namespace Checkers
                         {
                            
                             {"username", SpannerDbType.String, user},
-                            {"password", SpannerDbType.String, pwrd}
+                            {"password", SpannerDbType.String, pwrd},
+                            {"highScore", SpannerDbType.Int64, 0 }
                         });
 
                         cmd.Transaction= transaction;
@@ -97,6 +98,7 @@ namespace Checkers
 
                         transaction.Commit();
 
+                        MessageBoxResult messageBox = MessageBox.Show("Account created!!");
                     });
                 }
                 catch (Exception exc)
@@ -112,22 +114,30 @@ namespace Checkers
         {
             
             var connection = conn();
-            int count;
+            int count = 0;
+            try
+            {
 
-           using (var cmd = connection.CreateSelectCommand(
-                "SELECT COUNT(username) FROM users " +
-                "WHERE username = " + user)) {
 
-                cmd.Parameters.Add("username", SpannerDbType.String).Value= user;
+                using (var cmd = connection.CreateSelectCommand(
+                     "SELECT COUNT(username) FROM users " +
+                     "WHERE username = @username"))
+                {
 
-                var reader = cmd.ExecuteReader();
+                    cmd.Parameters.Add("username", SpannerDbType.String).Value= user;
 
-                reader.Read();
+                    var reader = cmd.ExecuteReader();
 
-                count = reader.GetInt32(0);
+                    reader.Read();
 
+                    count = reader.GetInt32(0);
+
+                }
             }
-
+            catch(Exception ex)
+            {
+                MessageBoxResult message= MessageBox.Show(ex.Message);
+            }
             return count > 0;
            
         }
